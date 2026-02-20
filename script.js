@@ -21,21 +21,26 @@ class Rectangle {
     }
 }
 
+
 // Square Class (inherits from Rectangle)
 class Square extends Rectangle {
     constructor(side) {
-        super(side, side); // call parent constructor
-        this._side = side;
+        super(side, side); // sets width and height equal
     }
 
     // Method to calculate perimeter
     getPerimeter() {
-        return this._side * 4;
+        return this.width * 4;
     }
 }
 
 
-// Example usage
+// Make classes available globally for Cypress tests
+window.Rectangle = Rectangle;
+window.Square = Square;
+
+
+// Optional test examples
 const rectangle = new Rectangle(5, 10);
 console.log(rectangle.width);      // 5
 console.log(rectangle.height);     // 10
