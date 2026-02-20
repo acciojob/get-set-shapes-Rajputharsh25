@@ -1,5 +1,6 @@
 class Rectangle {
   constructor(width, height) {
+    // Standard practice uses an underscore to indicate a "private" backing property
     this._width = width;
     this._height = height;
   }
@@ -22,16 +23,16 @@ class Rectangle {
 
 class Square extends Rectangle {
   constructor(side) {
-    // A square is a rectangle where width = height = side
+    // Calls the Rectangle constructor with 'side' for both width and height
     super(side, side);
   }
 
-  // Method to calculate perimeter
+  // Method to calculate perimeter specifically for Square
   getPerimeter() {
     return 4 * this.width;
   }
 }
 
-// Attach to window for Cypress tests to access
+// Expose classes to the window object for Cypress test accessibility
 window.Rectangle = Rectangle;
 window.Square = Square;
